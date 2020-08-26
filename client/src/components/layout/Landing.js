@@ -88,6 +88,7 @@ const Landing = () => {
 			>
 				10 attempts
 			</button>
+			<p style={{ margin: '20px 0px', textAlign: 'center' }}>Login to check your streak!</p>
 		</Fragment>
 	);
 };

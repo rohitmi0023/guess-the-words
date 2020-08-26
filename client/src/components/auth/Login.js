@@ -7,30 +7,29 @@ import NavBar from '../NavBar';
 const Login = props => {
 	const [formData, setFormData] = useState({
 		email: '',
-		password: ''
+		password: '',
 	});
 
 	const [handleErrors, setHandleErrors] = useState({
-		currentErrors: []
+		currentErrors: [],
 	});
 
 	const { email, password } = formData;
 
-	const onChange = e =>
-		setFormData({ ...formData, [e.target.name]: e.target.value });
+	const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
 	const handleSubmit = async e => {
 		e.preventDefault();
 		console.log(props);
 		const userCheck = {
 			email,
-			password
+			password,
 		};
 		try {
 			const config = {
 				headers: {
-					'Content-Type': 'application/json'
-				}
+					'Content-Type': 'application/json',
+				},
 			};
 			const body = JSON.stringify(userCheck);
 			const res = await axios.post('/api/auth', body, config);
@@ -41,8 +40,10 @@ const Login = props => {
 			console.log(err);
 			if (err.response) {
 				const errors = err.response.data.errors;
-				const msgs = errors.map(e => e.msg);
-				setHandleErrors({ ...handleErrors, currentErrors: msgs });
+				if (errors) {
+					const msgs = errors.map(e => e.msg);
+					setHandleErrors({ ...handleErrors, currentErrors: msgs });
+				}
 			}
 		}
 	};
