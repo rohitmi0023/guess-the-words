@@ -52,7 +52,7 @@ const Home = props => {
 			setNumber(0);
 			setRandomNumber();
 			const results = {
-				result: 'true',
+				result: 'Correct',
 			};
 			const body = JSON.stringify(results);
 			const res = await Axios.post('/api/results', body, config);
@@ -63,7 +63,7 @@ const Home = props => {
 			setCurrentAttempt(0);
 			setNumber(0);
 			const results = {
-				result: 'false',
+				result: 'Incorrect',
 			};
 			const body = JSON.stringify(results);
 			const res = await Axios.post('/api/results', body, config);

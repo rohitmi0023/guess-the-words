@@ -7,12 +7,6 @@ import Home from './components/auth/protectedRoutes/Home';
 import Forbidden from './components/layout/Forbidden';
 import Logout from './components/auth/Logout';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, faCheckSquare, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-
-library.add(faCoffee, faCheckSquare, faSignOutAlt);
-
 const App = () => {
 	const [isAuth, setIsAuth] = useState(false);
 	useEffect(() => {
